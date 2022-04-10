@@ -1,3 +1,4 @@
+
 console.log("It's working!")
 // Default values
 defaultBackgroundColor = 'white'
@@ -5,21 +6,21 @@ defaultColorChange = 'blue'
 
 //Chosen Values
 selectedBackgroundColor = 'red'
-selectedColor = 'blue'
 gridSize = 4
 
 const drawingBoard = document.querySelector('.board');
-
+const rows = document.querySelectorAll('.row');
 // const grid = document.createElement('div')
 
 function createGridOf(numBox) {
+    // creates rows and columns based on the 'gridSize' value
     drawingBoard.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
-    drawingBoard.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+    drawingBoard.style.gridTemplateColumns = `repeat(${gridSize}, ${gridSize})`;
     //rows.style.gridRow = `span 1`;
-    document.querySelectorAll('.row').forEach(el => el.gridColumn = 'span 1');
 
-    console.log(gridSize)
 
+
+    //
     let counter = 0
     for (let i = 0; i < numBox; i++) {
         const row = drawingBoard.appendChild(document.createElement('div'));
@@ -35,7 +36,7 @@ function createGridOf(numBox) {
 
             
         }
-        
+
     }
 }
 
@@ -54,25 +55,33 @@ function addNumberToBoxes() {
     i = 1;
     boxes.forEach(element => {
         element.textContent = i;
+        //element.style.backgroundColor = "blue"
         i += 1; 
     });
 }
 
 addNumberToBoxes();
 
-function changeBoxCholor() {
+function changeBoxColor() {
+
     boxes.forEach(box => {
         box.addEventListener('click', () => {
-            box.style.backgroundColor = selectedColor
+            inputColor = document.querySelector('.color_picker').value;
+
+            box.style.backgroundColor = inputColor
             console.log("make it Shake")
         })
     })
 }
 
-changeBoxCholor();
+changeBoxColor();
 
 
 
+// function gridToggle(){
+//     if ();
+//     drawingBoard
+// }
 
 
 
