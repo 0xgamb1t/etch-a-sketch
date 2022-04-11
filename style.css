@@ -6,7 +6,6 @@
   display: grid;
   width: 600px;
   height: 600px;
-  border: 1px solid black;
 }
 
 .row {
@@ -17,13 +16,17 @@
 .box {
 }
 
+.grid-on {
+  border: 1px solid black;
+}
+
 .p {
   background-color: red;
 }
 
-.rangeContainer {
+/* .rangeContainer {
   width: 100%;
-}
+} */
 
 .slider {
   -webkit-appearance: none;

@@ -13,12 +13,14 @@ const boxes = document.getElementsByName('.box');
 
 function createGrid(boxNum) {
     const drawingBoard = document.querySelector('.board');
-    let boxes = drawingBoard.querySelectorAll('.row')
+    const boxes = document.querySelectorAll('.row')
     boxes.forEach((div) => div.remove());
 
     // creates rows and columns based on the 'gridSize' value
-    // drawingBoard.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
-    // drawingBoard.style.gridTemplateColumns = `repeat(${gridSize}, 1fr`;
+    /*
+    drawingBoard.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+    drawingBoard.style.gridTemplateColumns = `repeat(${gridSize}, 1fr`;
+    */
 
     let counter = 0
     
@@ -35,15 +37,11 @@ function createGrid(boxNum) {
     }
     changeBoxColor();
     gridToggle();
-
-
-    
+    resetToggle();
 }
 
 console.log(gridSlider.value)
 createGrid(gridSlider.value)
-
-
 
 //const boxes = document.querySelectorAll(".box")
 
@@ -77,13 +75,12 @@ function changeBoxColor() {
     })
 }
 
-
 // 3. gridToggle option
 function gridToggle(){
     const boxes = document.querySelectorAll('.box');
     gridBtnToggle.addEventListener('click', () => {
         boxes.forEach(el => {
-            el.style.border = '1px solid black';
+            el.classList.toggle('grid-on');
         })
         console.log('grid toggle clicked!')
     });
@@ -96,15 +93,11 @@ function resetToggle(){
 
     resetBtn.addEventListener('click', () => {
         boxes.forEach(function (el) {
-            el.style.backgroundColor = defaultBackgroundColor;
+            el.style.backgroundColor = null;
         })
         console.log('reset clicked!')
-    });
-    
+    });  
 }
-
-resetToggle();
-
 
 // 5. change grid size function
 function newGrid(){
