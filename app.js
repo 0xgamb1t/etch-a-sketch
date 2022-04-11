@@ -1,64 +1,74 @@
 
 console.log("It's working!")
+
 // Default values
 defaultBackgroundColor = 'white'
 defaultColorChange = 'black'
 
-//Chosen Values
-selectedBackgroundColor = 'red';
-gridSize = 10;
-
-const drawingBoard = document.querySelector('.board');
-const rows = document.querySelectorAll('.row');
 const resetBtn = document.querySelector('.reset');
-const gridBtn = document.querySelector('.grid_toggle');
-// const grid = document.createElement('div')
+const gridBtnToggle = document.querySelector('.grid_toggle');
+const gridSlider = document.querySelector('.slider');
 
-function createGridOf(numBox) {
+const boxes = document.getElementsByName('.box');
+
+function createGrid(boxNum) {
+    const drawingBoard = document.querySelector('.board');
+    let boxes = drawingBoard.querySelectorAll('.row')
+    boxes.forEach((div) => div.remove());
+
     // creates rows and columns based on the 'gridSize' value
     // drawingBoard.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
-    // drawingBoard.style.gridTemplateColumns = `repeat(${gridSize}, ${gridSize})`;
-    //rows.style.gridRow = `span 1`;
+    // drawingBoard.style.gridTemplateColumns = `repeat(${gridSize}, 1fr`;
 
-    //
     let counter = 0
-    for (let i = 0; i < numBox; i++) {
+    
+    for (let i = 0; i < boxNum; i++) {
         const row = drawingBoard.appendChild(document.createElement('div'));
         row.className = "row"
-        for (x = 0; x < numBox; x++) {
+        for (x = 0; x < boxNum; x++) {
             const column = row.appendChild((document.createElement('div')));
             column.classList.add('box', `number${counter + 1}`,`column${x + 1}`) 
             counter += 1
             // console.log(counter)            
+        
         }
-
     }
+    changeBoxColor();
+    gridToggle();
+
+
+    
 }
 
-createGridOf(gridSize)
+console.log(gridSlider.value)
+createGrid(gridSlider.value)
 
-const boxes = document.querySelectorAll(".box")
+
+
+//const boxes = document.querySelectorAll(".box")
 
 // 1. add numbers to boxes
 
+/*
 function addNumberToBoxes() {
-    i = 1;
-    boxes.forEach(element => {
-        element.textContent = i;
+    let board = document.querySelector('.board')
+    let boxes = board.querySelectorAll('.box');
+    boxes.forEach((element, index) => {
+        element.textContent = index + 1;
         //element.style.backgroundColor = "blue"
-        i += 1; 
     });
 }
 
 addNumberToBoxes();
-
+*/
 
 // 2. change color when clicked -> based on inputColor
-
 function changeBoxColor() {
+    const boxes = document.querySelectorAll('.box');
 
     boxes.forEach(box => {
-        box.addEventListener('click', () => {
+
+        box.addEventListener('mouseover', () => {
             inputColor = document.querySelector('.color_picker').value;
 
             box.style.backgroundColor = inputColor
@@ -67,16 +77,11 @@ function changeBoxColor() {
     })
 }
 
-changeBoxColor();
 
-
-
-// functions
 // 3. gridToggle option
-
-
 function gridToggle(){
-    gridBtn.addEventListener('click', () => {
+    const boxes = document.querySelectorAll('.box');
+    gridBtnToggle.addEventListener('click', () => {
         boxes.forEach(el => {
             el.style.border = '1px solid black';
         })
@@ -85,11 +90,10 @@ function gridToggle(){
     
 }
 
-gridToggle();
 // 4. reset button
-
-
 function resetToggle(){
+    const boxes = document.querySelectorAll('.box')
+
     resetBtn.addEventListener('click', () => {
         boxes.forEach(function (el) {
             el.style.backgroundColor = defaultBackgroundColor;
@@ -102,6 +106,19 @@ function resetToggle(){
 resetToggle();
 
 
-// 5. grid size function
+// 5. change grid size function
+function newGrid(){
+    gridSlider.onchange = function() {
+        rangeValue = gridSlider.value
+        createGrid(gridSlider.value)
+    }
+}
+
+newGrid();
+// changeBoxColor();
+// createGrid(gridSlider.value)
+
+
+// 6. light & dark mode
 
 
