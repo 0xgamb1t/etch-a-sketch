@@ -10,12 +10,20 @@
 
 </head>
 <body>
-    <div class="container">
-        <h1>Etch-A-Sketch</h1>
+    <div class="mainContainer">
+        <div class="container">
+        <div class="heading">Etch-A-Sketch</div>
         <div class="buttons">
-            <input type="color" class="color_picker"></input>
+            <input type="color" class="button color_picker"></input>
+            <button class="button grid_color_toggle">Grid Color</button>
             <button class="button grid_toggle">Grid Toggle</button>
+            <button class="button click">' click '</button>
+            <button class="button save">Save</button>
+            
+
             <button class="button reset">Reset</button>
+
+            
 
             
             <!-- <button class="button rainbow_mode">Rainbow</button>
@@ -25,10 +33,15 @@
 
         </div>
         <div class="rangeContainer">
-        <input type="range" min="1" max="32" class="slider" value="8" id="myRange"></div>
+            <input type="range" min="1" max="32" class="slider" value="8" id="myRange">
+            <div class="value-container">
+                <span id="box-size-value">0</span>
+            </div>
+        </div>
         <div class="board"></div>
         
     </div>
+</div>
 
     
     

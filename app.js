@@ -8,8 +8,10 @@ defaultColorChange = 'black'
 const resetBtn = document.querySelector('.reset');
 const gridBtnToggle = document.querySelector('.grid_toggle');
 const gridSlider = document.querySelector('.slider');
+const click = document.querySelector('.click');
 
 const boxes = document.getElementsByName('.box');
+let gridValue = gridSlider.value
 
 function createGrid(boxNum) {
     const drawingBoard = document.querySelector('.board');
@@ -66,7 +68,7 @@ function changeBoxColor() {
 
     boxes.forEach(box => {
 
-        box.addEventListener('mouseover', () => {
+        box.addEventListener('click', () => {
             inputColor = document.querySelector('.color_picker').value;
 
             box.style.backgroundColor = inputColor
@@ -100,10 +102,26 @@ function resetToggle(){
 }
 
 // 5. change grid size function
+
+
+const counterText = document.querySelector('#box-size-value')
+
+function sizeCounter() {
+    counterText.textContent = gridSlider.value
+
+}
+
+sizeCounter(gridSlider.value)
+
+
+
+// 6. light & dark mode
+
 function newGrid(){
     gridSlider.onchange = function() {
         rangeValue = gridSlider.value
         createGrid(gridSlider.value)
+        sizeCounter(gridSlider.value)
     }
 }
 
@@ -111,7 +129,12 @@ newGrid();
 // changeBoxColor();
 // createGrid(gridSlider.value)
 
+function clickToMouseover() {
+    click.addEventListener('click', () =>{
+        click.textContent = " ' hover ' "
+        console.log('clicked me!')
+    })
+    
+}
 
-// 6. light & dark mode
-
-
+clickToMouseover()
