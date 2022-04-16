@@ -11,7 +11,7 @@ const gridSlider = document.querySelector('.slider');
 const click = document.querySelector('.click');
 
 const boxes = document.getElementsByName('.box');
-let changeColorEventType = ('click')
+let changeColorEventType = 'click'
 let gridValue = gridSlider.value
 
 
@@ -32,18 +32,49 @@ function addNumberToBoxes() {
 
 addNumberToBoxes();
 */
+function clickToMouseover() {
+    click.addEventListener('click', () =>{
+        if (click.textContent == "' click '") {
+            click.textContent = " ' hover ' "
+            // changeColorEventType = 'mouseover'
+            console.log('clicked me!')
+            console.log(changeColorEventType)
+            // changeBoxColor();
 
+
+            //add event listener 'mouseover' to all boxes
+            //run function that allows boxes to change color
+
+
+        } else {
+            click.textContent = "' click '"
+            // changeColorEventType = 'click'
+            console.log('clicked me!2nd')
+            console.log(changeColorEventType)
+
+            //remove event listener 'mouseover' to boxes
+            //run function that allows boxes to change color
+        }
+        
+    })
+    
+}
+
+clickToMouseover()
 
 
 // 2. change color when clicked -> based on inputColor
 function changeBoxColor() {
     const boxes = document.querySelectorAll('.box');
+    
+    console.log(click.textContent)
+    if (click.textContent == "' click '") {}
     boxes.forEach(box => {
         box.addEventListener(`${changeColorEventType}`, () => {
             inputColor = document.querySelector('.color_picker').value;
             box.style.backgroundColor = inputColor
             console.log("abracadabra")
-            console.log(changeColorEventType);
+            //console.log(changeColorEventType);
         })
     })
 }
@@ -102,26 +133,7 @@ newGrid();
 // changeBoxColor();
 // createGrid(gridSlider.value)
 
-function clickToMouseover() {
-    click.addEventListener('click', () =>{
-        if (click.textContent == "' click '") {
-            click.textContent = " ' hover ' "
-            changeColorEventType = 'mouseover'
-            console.log('clicked me!')
-            console.log(changeColorEventType)
 
-        } else {
-            click.textContent = "' click '"
-            changeColorEventType = 'click'
-            console.log('clicked me!2nd')
-            console.log(changeColorEventType)
-        }
-        
-    })
-    
-}
-
-clickToMouseover()
 
 
 
@@ -164,9 +176,21 @@ function createGrid(boxNum) {
     gridToggle();
     resetToggle();
     changeBoxColor();
-    console.log(changeColorEventType)
+    //console.log(changeColorEventType)
 
 }
 
-console.log(gridSlider.value)
+//console.log(gridSlider.value)
 createGrid(gridSlider.value)
+
+
+
+
+// let num = 5;
+// let outputString = `Your output is: ${num}`;
+// console.log(outputString);
+// console.log(num)
+
+// num = 6;
+// console.log(outputString);
+// console.log(num)
