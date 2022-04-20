@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="app.js" defer></script>
+    <script type="text/javascript" src="app2.js" defer></script>
     <link href="style.css" rel="stylesheet" type="text/css">
     <title>Document</title>
 
@@ -14,31 +14,27 @@
         <div class="container">
         <div class="heading">Etch-A-Sketch</div>
         <div class="buttons">
-            <input type="color" class="button color_picker"></input>
-            <button class="button grid_color_toggle">Grid Color</button>
-            <button class="button grid_toggle">Grid Toggle</button>
+            <input type="color" class="button box_color_picker"></input>
+            <input type="color" class="button grid_color"></input>
+            <button class="button rainbow_mode">Rainbow</button>
+            <button class="button grid_toggle">Grid : <span class="grid_mode"></span></button>
             <button class="button click">' click '</button>
-            <button class="button save">Save</button>
-            
-
             <button class="button reset">Reset</button>
 
-            
-
-            
             <!-- <button class="button rainbow_mode">Rainbow</button>
             <button class="button flip_mode">Flip</button>
             <button class="button light_dark">🌙</button> -->
             
 
         </div>
+        <div class="board"></div>
         <div class="rangeContainer">
             <input type="range" min="1" max="32" class="slider" value="8" id="myRange">
             <div class="value-container">
                 <span id="box-size-value">0</span>
             </div>
         </div>
-        <div class="board"></div>
+        
         
     </div>
 </div>
