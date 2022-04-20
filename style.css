@@ -74,8 +74,8 @@ body {
 .rangeContainer {
   height: 50px;
   display: grid;
-  width: 300px;
-  grid-template-columns: repeat(14, 1fr);
+  width: 400px;
+  grid-template-columns: repeat(15, 1fr);
   grid-template-rows: 1fr;
   align-items: center;
   /* border: 1px solid black; */
@@ -94,7 +94,7 @@ body {
   background: black;
   outline: none;
   grid-column-start: 2;
-  grid-column-end: 13;
+  grid-column-end: 12;
   
 
 
@@ -108,7 +108,8 @@ body {
 } */
 
 .value-container {
-  grid-column: span 2 / -1;
+  grid-column: span 4 / -1;
   align-self: center;
   justify-self: center;
 }
+

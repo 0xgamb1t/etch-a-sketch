@@ -54,9 +54,13 @@ resetBtn.onclick = function (){reset()};
 
 
 
-//Changing Size on slider change
+const boxGridSizeNumber = document.querySelector('#box-size-value')
+boxGridSizeNumber.textContent = `${gridSlider.value} x ${gridSlider.value}`
+
+//Changing Size slider
 const changeSize = gridSlider.onchange = function() {
     reset();
+    boxGridSizeNumber.textContent = `${gridSlider.value} x ${gridSlider.value}`
     console.log(gridSize)
 }
 
@@ -94,6 +98,7 @@ const toggleGrid = gridToggleBtn.onclick = function() {
         })
     }
 }
+
 
 
 
